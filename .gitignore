@@ -15,6 +15,3 @@ BuildingEscape/Content/StarterContent/HDRI
 *.VC.db
 *.suo
 /.vs
-/.vs/BuildingEscape
-*.ipch
-*.db-shm
