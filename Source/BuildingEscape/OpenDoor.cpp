@@ -31,7 +31,8 @@ void UOpenDoor::BeginPlay()
 
 void UOpenDoor::OpenDoor()
 {
-	Owner->SetActorRotation(FRotator(0.f, OpenAngle, 0.f));
+	// Owner->SetActorRotation(FRotator(0.f, OpenAngle, 0.f));
+	OnOpenRequest.Broadcast();
 }
 
 void UOpenDoor::CloseDoor()
@@ -71,8 +72,6 @@ float UOpenDoor::GetTotalMassOfActorsOnPlate()
 	for (const auto* Actor : OverlappingActors)
 	{
 		TotalMass += Actor->FindComponentByClass<UPrimitiveComponent>()->GetMass();
-
-		UE_LOG(LogTemp, Warning, TEXT("%s on pressure plate"), *Actor->GetName());
 	}
 
 	return TotalMass;
